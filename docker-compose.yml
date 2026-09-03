@@ -1,0 +1,77 @@
+services:
+
+  postgres:
+    image: postgres:16
+    container_name: virtual-postgres
+
+    environment:
+      POSTGRES_DB: virtual_web
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+
+    container_name: virtual-backend
+
+    ports:
+      - "8080:8080"
+
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/virtual_web
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+
+    depends_on:
+      - postgres
+
+    volumes:
+      - .:/workspace
+
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+
+    container_name: virtual-frontend
+
+    ports:
+      - "5173:80"
+
+    depends_on:
+      - backend
+
+
+  devcontainer:
+    image: mcr.microsoft.com/devcontainers/java:1-21-bookworm
+
+    container_name: virtual-devcontainer
+
+    command: sleep infinity
+
+    working_dir: /workspace
+
+    volumes:
+      - .:/workspace
+
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/virtual_web
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+
+    depends_on:
+      - postgres
+
+
+volumes:
+  postgres_data:
