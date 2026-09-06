@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-const API_URL = "http://localhost:8080/api/products";
+// Tự động xác định Backend URL trên GitHub Codespaces
+const API_URL = "/api/products";
 
 function App() {
     const [products, setProducts] = useState([]);
@@ -16,7 +17,9 @@ function App() {
 
     const [editingId, setEditingId] = useState(null);
 
+    // =========================
     // GET - Lấy danh sách sản phẩm
+    // =========================
     const fetchProducts = async () => {
         try {
             const response = await axios.get(API_URL);
@@ -26,11 +29,31 @@ function App() {
         }
     };
 
+    // =========================
+    // Lấy sản phẩm khi mở trang
+    // =========================
     useEffect(() => {
-        fetchProducts();
+        let cancelled = false;
+
+        axios
+            .get(API_URL)
+            .then((response) => {
+                if (!cancelled) {
+                    setProducts(response.data);
+                }
+            })
+            .catch((error) => {
+                console.error("Lỗi khi lấy sản phẩm:", error);
+            });
+
+        return () => {
+            cancelled = true;
+        };
     }, []);
 
+    // =========================
     // Xử lý nhập dữ liệu
+    // =========================
     const handleChange = (event) => {
         setForm({
             ...form,
@@ -38,7 +61,9 @@ function App() {
         });
     };
 
+    // =========================
     // POST / PUT
+    // =========================
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -71,15 +96,17 @@ function App() {
 
             setEditingId(null);
 
-            // Cập nhật danh sách
-            fetchProducts();
+            // Cập nhật lại danh sách
+            await fetchProducts();
 
         } catch (error) {
             console.error("Lỗi khi lưu sản phẩm:", error);
         }
     };
 
+    // =========================
     // Chọn sản phẩm để sửa
+    // =========================
     const handleEdit = (product) => {
         setEditingId(product.id);
 
@@ -91,7 +118,9 @@ function App() {
         });
     };
 
+    // =========================
     // DELETE - Xóa sản phẩm
+    // =========================
     const handleDelete = async (id) => {
         const confirmed = window.confirm(
             "Bạn có chắc muốn xóa sản phẩm này?"
@@ -104,14 +133,16 @@ function App() {
         try {
             await axios.delete(`${API_URL}/${id}`);
 
-            fetchProducts();
+            await fetchProducts();
 
         } catch (error) {
             console.error("Lỗi khi xóa sản phẩm:", error);
         }
     };
 
+    // =========================
     // Hủy chỉnh sửa
+    // =========================
     const handleCancel = () => {
         setEditingId(null);
 
@@ -132,6 +163,9 @@ function App() {
                 Product Management System
             </p>
 
+            {/* =========================
+                FORM ADD / EDIT PRODUCT
+            ========================= */}
             <div className="form-section">
 
                 <h2>
@@ -201,6 +235,9 @@ function App() {
 
             </div>
 
+            {/* =========================
+                PRODUCT LIST
+            ========================= */}
             <div className="list-section">
 
                 <h2>Product List</h2>
@@ -208,74 +245,78 @@ function App() {
                 <table>
 
                     <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Description</th>
-                        <th>Quantity</th>
-                        <th>Actions</th>
-                    </tr>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Actions</th>
+                        </tr>
                     </thead>
 
                     <tbody>
 
-                    {products.length === 0 ? (
+                        {products.length === 0 ? (
 
-                        <tr>
-                            <td colSpan="6">
-                                No products found
-                            </td>
-                        </tr>
-
-                    ) : (
-
-                        products.map((product) => (
-
-                            <tr key={product.id}>
-
-                                <td>{product.id}</td>
-
-                                <td>{product.name}</td>
-
-                                <td>
-                                    {product.price}
+                            <tr>
+                                <td colSpan="6">
+                                    No products found
                                 </td>
-
-                                <td>
-                                    {product.description}
-                                </td>
-
-                                <td>
-                                    {product.quantity}
-                                </td>
-
-                                <td>
-
-                                    <button
-                                        onClick={() =>
-                                            handleEdit(product)
-                                        }
-                                    >
-                                        Edit
-                                    </button>
-
-                                    <button
-                                        onClick={() =>
-                                            handleDelete(product.id)
-                                        }
-                                        className="delete-button"
-                                    >
-                                        Delete
-                                    </button>
-
-                                </td>
-
                             </tr>
 
-                        ))
+                        ) : (
 
-                    )}
+                            products.map((product) => (
+
+                                <tr key={product.id}>
+
+                                    <td>
+                                        {product.id}
+                                    </td>
+
+                                    <td>
+                                        {product.name}
+                                    </td>
+
+                                    <td>
+                                        {product.price}
+                                    </td>
+
+                                    <td>
+                                        {product.description}
+                                    </td>
+
+                                    <td>
+                                        {product.quantity}
+                                    </td>
+
+                                    <td>
+
+                                        <button
+                                            onClick={() =>
+                                                handleEdit(product)
+                                            }
+                                        >
+                                            Edit
+                                        </button>
+
+                                        <button
+                                            onClick={() =>
+                                                handleDelete(product.id)
+                                            }
+                                            className="delete-button"
+                                        >
+                                            Delete
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+                            ))
+
+                        )}
 
                     </tbody>
 
