@@ -154,7 +154,7 @@ virtual-environment-web-project/
 
 Hệ thống hiện tại cung cấp các chức năng quản lý sản phẩm:
 
-# 6.1. Hiển thị sản phẩm
+### 6.1. Hiển thị sản phẩm
 
 Frontend gửi request:
 
@@ -162,7 +162,7 @@ GET /api/products
 
 Backend lấy danh sách sản phẩm từ PostgreSQL và trả về dữ liệu JSON.
 
-# 6.2. Thêm sản phẩm
+### 6.2. Thêm sản phẩm
 
 Frontend gửi:
 
@@ -176,7 +176,7 @@ Ví dụ:
   "description": "Gaming Laptop",
   "quantity": 10
 }
-6.3. Cập nhật sản phẩm
+### 6.3. Cập nhật sản phẩm
 
 Frontend gửi:
 
@@ -185,7 +185,7 @@ PUT /api/products/{id}
 Ví dụ:
 
 PUT /api/products/1
-6.4. Xóa sản phẩm
+### 6.4. Xóa sản phẩm
 
 Frontend gửi:
 
@@ -455,22 +455,22 @@ Một mục tiêu của dự án là so sánh giữa chạy ứng dụng trực 
 | Phù hợp làm việc nhóm | Có thể phát sinh khác biệt | Đồng nhất hơn                 |
 
 ## 17. Ưu điểm
-# Docker
+### Docker
 Cô lập ứng dụng và dependencies.
 Dễ triển khai.
 Có thể tạo lại môi trường.
 Giảm vấn đề khác biệt giữa các môi trường.
-# Docker Compose
+### Docker Compose
 Quản lý nhiều service.
 Đơn giản hóa việc khởi động hệ thống.
 Các service có thể giao tiếp với nhau thông qua Docker network.
 Dễ mô tả kiến trúc của hệ thống bằng một file cấu hình.
-# Dev Container
+### Dev Container
 Chuẩn hóa môi trường phát triển.
 Giảm yêu cầu cài đặt thủ công.
 Dễ chuyển project sang máy khác.
 Phù hợp với GitHub Codespaces.
-# GitHub Codespaces
+### GitHub Codespaces
 Có thể phát triển trực tiếp trên cloud.
 Không phụ thuộc hoàn toàn vào cấu hình máy local.
 Môi trường có thể được tạo lại từ repository.
