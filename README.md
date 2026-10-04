@@ -55,18 +55,20 @@ Dev Container
    ▼
 Security Testing
 ```
-Các thành phần
-Thành phần	Công nghệ
-Development Environment	GitHub Codespaces
-Development Container	Dev Container
-Frontend	React 19 + Vite 8
-Backend	Java 21 + Spring Boot 4
-API	REST API
-ORM	Spring Data JPA
-Database	PostgreSQL 16
-HTTP Client	Axios
-Build Tool Backend	Gradle
-Package Management Frontend	npm
+```text
+| Thành phần                 | Công nghệ               |
+| :------------------------- | :---------------------- |
+| Development Environment    | GitHub Codespaces       |
+| Development Container      | Dev Container           |
+| Frontend                   | React 19 + Vite 8       |
+| Backend                    | Java 21 + Spring Boot 4 |
+| API                        | REST API                |
+| ORM                        | Spring Data JPA         |
+| Database                   | PostgreSQL 16           |
+| HTTP Client                | Axios                   |
+| Build Tool Backend         | Gradle                  |
+| Package Management Frontend| npm                     |
+```
 
 ## 4. Cấu trúc thư mục
 ```text
