@@ -398,13 +398,13 @@ Ghi nhận kết quả
 Kiểm thử lại
 
 Kết quả kiểm thử được ghi nhận theo dạng:
-
-Test Case	Nội dung	Expected Result	Actual Result	Status
-SEC-01	Kiểm tra input không hợp lệ	Request bị xử lý phù hợp	Chưa thực hiện	TBD
-SEC-02	Kiểm tra SQL Injection	Không thực thi truy vấn ngoài ý muốn	Chưa thực hiện	TBD
-SEC-03	Kiểm tra XSS	Dữ liệu nguy hiểm không được thực thi	Chưa thực hiện	TBD
-SEC-04	Kiểm tra lỗi API	Không tiết lộ thông tin nội bộ	Chưa thực hiện	TBD
-
+```text
+Test Case |	Nội dung	Expected Result	  | Actual                                | Result	           |Status
+SEC-01	 | Kiểm tra input không hợp lệ  | Request bị xử lý phù hợp              | Chưa thực hiện	  | TBD
+SEC-02	 | Kiểm tra SQL Injection	     | Không thực thi truy vấn ngoài ý muốn	| Chưa thực hiện	  | TBD
+SEC-03	 | Kiểm tra XSS	              | Dữ liệu nguy hiểm không được thực thi	| Chưa thực hiện	  | TBD
+SEC-04	 | Kiểm tra lỗi API	           | Không tiết lộ thông tin nội bộ	      | Chưa thực hiện	  | TBD
+```
 Các kết quả bảo mật sẽ được cập nhật sau khi thực hiện kiểm thử thực tế.
 
 ## 17. Môi trường phát triển
