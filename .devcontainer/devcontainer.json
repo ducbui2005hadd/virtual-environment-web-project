@@ -1,12 +1,30 @@
 {
-  "name": "Virtual Web Development Environment",
-  "dockerComposeFile": "../docker-compose.yml",
-  "service": "devcontainer",
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-  "shutdownAction": "stopCompose",
+  "name": "Virtual Web Security Development Environment",
+  "image": "mcr.microsoft.com/devcontainers/java:1-21-bookworm",
+
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
       "version": "24"
     }
-  }
+  },
+
+  "remoteUser": "vscode",
+  "containerUser": "vscode",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-gradle",
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  },
+
+  "forwardPorts": [
+    8080,
+    5173
+  ],
+
+  "postCreateCommand": "cd backend && chmod +x gradlew"
 }
