@@ -34,7 +34,7 @@ Các mục tiêu chính của dự án:
 
 Kiến trúc tổng thể:
 
-
+```text
 GitHub
    │
    ▼
@@ -54,6 +54,7 @@ Dev Container
    │
    ▼
 Security Testing
+```
 Các thành phần
 Thành phần	Công nghệ
 Development Environment	GitHub Codespaces
@@ -68,6 +69,7 @@ Build Tool Backend	Gradle
 Package Management Frontend	npm
 
 ## 4. Cấu trúc thư mục
+```text
 virtual-environment-web-project/
 │
 ├── .devcontainer/
@@ -100,7 +102,7 @@ virtual-environment-web-project/
 │   └── vite.config.js
 │
 └── README.md
-
+```
 ## 5. Backend
 
 Backend được xây dựng bằng Java 21 và Spring Boot.
