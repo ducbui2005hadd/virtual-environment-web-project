@@ -34,7 +34,7 @@ Các mục tiêu chính của dự án:
 
 Kiến trúc tổng thể:
 
-```text
+
 GitHub
    │
    ▼
@@ -66,7 +66,8 @@ Database	PostgreSQL 16
 HTTP Client	Axios
 Build Tool Backend	Gradle
 Package Management Frontend	npm
-4. Cấu trúc thư mục
+
+## 4. Cấu trúc thư mục
 virtual-environment-web-project/
 │
 ├── .devcontainer/
@@ -99,7 +100,8 @@ virtual-environment-web-project/
 │   └── vite.config.js
 │
 └── README.md
-5. Backend
+
+## 5. Backend
 
 Backend được xây dựng bằng Java 21 và Spring Boot.
 
@@ -137,7 +139,7 @@ GET	/api/products/{id}	Lấy sản phẩm theo ID
 POST	/api/products	Tạo sản phẩm
 PUT	/api/products/{id}	Cập nhật sản phẩm
 DELETE	/api/products/{id}	Xóa sản phẩm
-6. Database
+## 6. Database
 
 Hệ thống sử dụng PostgreSQL.
 
@@ -159,7 +161,7 @@ spring.jpa.hibernate.ddl-auto=update
 
 Điều này cho phép Hibernate cập nhật cấu trúc database dựa trên entity khi ứng dụng khởi động.
 
-7. Frontend
+## 7. Frontend
 
 Frontend được xây dựng bằng React và Vite.
 
@@ -179,7 +181,7 @@ API được sử dụng trong ứng dụng:
 Vite được cấu hình proxy để chuyển các request /api tới backend đang chạy tại:
 
 http://localhost:8080
-8. Dev Container
+## 8. Dev Container
 
 Dev Container cung cấp môi trường phát triển thống nhất cho dự án.
 
@@ -197,7 +199,7 @@ ESLint
 
 Dev Container giúp các thành viên sử dụng cùng phiên bản môi trường phát triển và giảm sự khác biệt giữa các máy.
 
-9. GitHub Codespaces
+## 9. GitHub Codespaces
 
 GitHub Codespaces được sử dụng để cung cấp môi trường phát triển trên nền tảng đám mây.
 
@@ -218,7 +220,7 @@ Dev Container
 Sau khi mở repository bằng Codespaces, môi trường phát triển được thiết lập dựa trên cấu hình trong:
 
 .devcontainer/devcontainer.json
-10. Chạy Backend
+## 10. Chạy Backend
 
 Di chuyển vào thư mục backend:
 
@@ -256,7 +258,7 @@ npm run dev
 Frontend chạy tại:
 
 http://localhost:5173
-12. Build Backend
+## 12. Build Backend
 
 Để kiểm tra quá trình build:
 
@@ -266,7 +268,7 @@ cd backend
 Nếu build thành công, Gradle tạo các file build trong:
 
 backend/build/
-13. Build Frontend
+## 13. Build Frontend
 
 Chạy:
 
@@ -276,7 +278,7 @@ npm run build
 Kết quả build được tạo trong:
 
 frontend/dist/
-14. Kiểm thử chức năng
+## 14. Kiểm thử chức năng
 
 Các chức năng CRUD được kiểm thử thông qua REST API:
 
@@ -311,13 +313,13 @@ DELETE /api/products/{id}
 Mục đích:
 
 Kiểm tra khả năng xóa sản phẩm.
-15. Kiểm thử an toàn bảo mật
+## 15. Kiểm thử an toàn bảo mật
 
 Đây là hướng phát triển chính của đề tài.
 
 Các nhóm kiểm thử dự kiến gồm:
 
-15.1 API Security
+### 15.1 API Security
 
 Kiểm tra các REST API của hệ thống nhằm phát hiện:
 
@@ -325,7 +327,7 @@ Request không hợp lệ.
 Truy cập API không được kiểm soát.
 Dữ liệu đầu vào không an toàn.
 Xử lý lỗi không phù hợp.
-15.2 Input Validation
+### 15.2 Input Validation
 
 Kiểm tra dữ liệu đầu vào của các API:
 
@@ -341,17 +343,17 @@ quantity
 
 Mục tiêu là xác định hệ thống xử lý như thế nào đối với dữ liệu không hợp lệ hoặc dữ liệu bất thường.
 
-15.3 SQL Injection
+### 15.3 SQL Injection
 
 Kiểm tra khả năng ứng dụng bị ảnh hưởng bởi SQL Injection thông qua dữ liệu đầu vào.
 
 Đồng thời đánh giá cơ chế truy cập database của Spring Data JPA.
 
-15.4 Cross-Site Scripting (XSS)
+### 15.4 Cross-Site Scripting (XSS)
 
 Kiểm tra khả năng dữ liệu do người dùng nhập vào được hiển thị lại trên giao diện mà không được xử lý phù hợp.
 
-15.5 Error Handling
+### 15.5 Error Handling
 
 Kiểm tra response khi gửi:
 
@@ -362,7 +364,7 @@ Dữ liệu không hợp lệ.
 
 Mục tiêu là hạn chế việc tiết lộ thông tin nội bộ của hệ thống.
 
-15.6 Dependency Security
+### 15.6 Dependency Security
 
 Kiểm tra các dependency của:
 
@@ -371,7 +373,7 @@ Frontend npm.
 
 Mục tiêu là phát hiện các dependency có vấn đề bảo mật hoặc phiên bản cần cập nhật.
 
-16. Kế hoạch kiểm thử bảo mật
+## 16. Kế hoạch kiểm thử bảo mật
 
 Quy trình kiểm thử dự kiến:
 
@@ -401,7 +403,7 @@ SEC-04	Kiểm tra lỗi API	Không tiết lộ thông tin nội bộ	Chưa thự
 
 Các kết quả bảo mật sẽ được cập nhật sau khi thực hiện kiểm thử thực tế.
 
-17. Môi trường phát triển
+## 17. Môi trường phát triển
 
 Dự án được phát triển trong môi trường:
 
@@ -420,7 +422,7 @@ React + Vite
 Spring Boot
       ↓
 PostgreSQL
-18. Định hướng phát triển
+## 18. Định hướng phát triển
 
 Các công việc tiếp theo của dự án:
 
@@ -437,7 +439,7 @@ Kiểm tra dependency security.
 Tổng hợp kết quả kiểm thử.
 Đề xuất biện pháp khắc phục.
 Kiểm thử lại sau khi sửa lỗi.
-19. Kết luận
+## 19. Kết luận
 
 Dự án xây dựng một môi trường phát triển thống nhất sử dụng GitHub Codespaces và Dev Container.
 
