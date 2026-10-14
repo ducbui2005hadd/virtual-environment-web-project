@@ -1,5 +1,5 @@
 {
-  "name": "Virtual Web Security Development Environment",
+  "name": "Virtual Web Development Environment",
   "image": "mcr.microsoft.com/devcontainers/java:1-21-bookworm",
 
   "features": {
