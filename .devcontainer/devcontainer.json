@@ -27,4 +27,4 @@
   ],
 
   "postCreateCommand": "cd backend && chmod +x gradlew"
-}
+}curl -i http://localhost:8080/api/products

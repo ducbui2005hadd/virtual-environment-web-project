@@ -1,0 +1,10 @@
+request=1 http=200 time=0.010498s
+request=2 http=200 time=0.004510s
+request=3 http=200 time=0.004813s
+request=4 http=200 time=0.003981s
+request=5 http=200 time=0.005940s
+request=6 http=200 time=0.009336s
+request=7 http=200 time=0.008040s
+request=8 http=200 time=0.008693s
+request=9 http=200 time=0.005241s
+request=10 http=200 time=0.005869s

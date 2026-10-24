@@ -1,0 +1,21 @@
+EXPERIMENT LOG: FRONTEND BUILD AND LINT
+Date: 2026-10-24
+Environment: GitHub Codespaces
+Frontend: React 19, Vite 8.2.2
+
+FT05 - Production build
+Command: cd frontend && npm run build
+Observed:
+- 72 modules transformed.
+- Build completed successfully in 1.10 seconds.
+- Generated frontend/dist/index.html.
+- CSS bundle: 1.28 kB (0.56 kB gzip).
+- JavaScript bundle: 243.78 kB (79.30 kB gzip).
+Result: PASS
+
+FT06 - ESLint
+Command: cd frontend && npm run lint
+Observed:
+- ESLint completed without displaying errors.
+- Exit code: 0.
+Result: PASS

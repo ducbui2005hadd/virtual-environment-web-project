@@ -1,0 +1,20 @@
+EXPERIMENT LOG: FRONTEND TEST ON GITHUB CODESPACES
+Date: 2026-10-24
+Frontend: React 19 + Vite 8 + Axios
+Environment: GitHub Codespaces
+Port: 5173
+
+FT01 - Start frontend development server
+Observed: Frontend page opened successfully through forwarded port 5173.
+Result: PASS
+
+FT02 - Render product management interface
+Observed: Virtual Web page displayed Add Product form and Product List table.
+Result: PASS
+
+FT03 - Add product through UI
+Observed: User confirmed that a product was added successfully and appeared in the interface.
+Result: PASS
+
+FT04 - Verify UI-created product through backend API
+Status: Pending exact API response confirming the newly added product.

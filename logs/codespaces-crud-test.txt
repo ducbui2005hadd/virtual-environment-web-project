@@ -1,0 +1,55 @@
+EXPERIMENT LOG: CRUD API TEST ON GITHUB CODESPACES
+Date: 2026-10-24
+Repository: virtual-environment-web-project
+Backend: Spring Boot
+Database: PostgreSQL
+API base URL: http://localhost:8080/api/products
+
+TC01 - GET initial product list
+Request: GET /api/products
+Expected: HTTP 200
+Actual: HTTP 200, body []
+Result: PASS
+
+TC02 - Create product
+Request: POST /api/products
+Request body:
+{"name":"Laptop Demo","description":"San pham kiem thu","price":15000000,"quantity":5}
+Expected: HTTP 201 and created product
+Actual: HTTP 201, returned product ID 1
+Result: PASS
+
+TC03 - GET product list after creation
+Request: GET /api/products
+Expected: HTTP 200 and created product appears
+Actual: HTTP 200, Laptop Demo appeared with ID 1
+Result: PASS
+
+TC04 - GET product by ID
+Request: GET /api/products/1
+Expected: HTTP 200 and correct product details
+Actual: HTTP 200, returned Laptop Demo with ID 1
+Result: PASS
+
+TC05 - Update product
+Request: PUT /api/products/1
+Request body:
+{"name":"Laptop Demo Updated","description":"San pham da cap nhat","price":18000000,"quantity":8}
+Expected: HTTP 200 and updated details
+Actual: HTTP 200, returned updated name, description, price and quantity
+Result: PASS
+
+TC06 - Delete product
+Request: DELETE /api/products/1
+Expected: HTTP 204 No Content
+Actual: HTTP 204 No Content
+Result: PASS
+
+TC07 - Verify list after deletion
+Request: GET /api/products
+Expected: HTTP 200 and deleted product no longer appears
+Actual: HTTP 200, body []
+Result: PASS
+
+Overall: 7/7 test steps passed based on observed responses.
+Note: This log records observed API responses; it does not by itself measure frontend behavior or performance.
